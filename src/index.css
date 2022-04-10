@@ -24,5 +24,10 @@ background-color: white;
 }
 
 .link{
-  padding: 64px;
+  margin-left: 33%;
+}
+
+.col-centered{
+  float: none;
+  margin: 0 auto;
 }
