@@ -1,0 +1,31 @@
+.mediaButtonsBar{
+    position: relative;
+    margin-top: auto;
+    visibility: hidden;
+    background: none;
+    display: flex;
+    height: fit-content;
+    width: fit-content;
+    border-radius: 50%;
+}
+
+.uploadButton{
+    margin: 5px;
+    border-radius: 50%;
+}
+
+.camera{
+    background-color: aqua;
+}
+
+.video{
+    background-color: blueviolet;
+}
+
+.record{
+    background-color: rgb(255, 0, 200);
+}
+
+.hiddenInput{
+    display: none;
+}
