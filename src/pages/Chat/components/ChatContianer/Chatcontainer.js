@@ -18,6 +18,9 @@ function Chatcontainer({ currentChat, setCurrentChat,chatContacts, setChatContac
     if(inputRef.current.value.trim().length === 0 && !mediaUpload){
       return alert("you must type at least one letter")
     }
+    if(inputRef.current.value.trim().length === 60 && !mediaUpload){
+      return alert("the massage is to long");
+    }
     let newMSG = {
       content: inputRef.current.value,
       timestamp: fomatCurrentDate(),

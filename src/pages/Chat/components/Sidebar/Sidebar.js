@@ -7,6 +7,11 @@ import { GENERATE_CHATS } from "../../../../config/messages.config";
 import "./Sidebar.css";
 import useUser from "../../../../hooks/useUser";
 
+function hideMediaUpload() {
+  let mediaUpload = document.getElementById('mediaUpload');
+  mediaUpload.style.visibility = 'hidden';
+}
+
 function Sidebar({ currentChat, setCurrentChat, chatContacts, setChatContacts }) {
   const user = useUser()
   const [contacts, setContacts] = useState(db)
@@ -23,7 +28,7 @@ function Sidebar({ currentChat, setCurrentChat, chatContacts, setChatContacts })
         <CreateContact chatContacts={chatContacts} contacts={contacts} setChatContacts={setChatContacts} />
         </div>
       </div>
-      <div className="sidebar-chat-list">
+      <div className="sidebar-chat-list" onClick={hideMediaUpload}>
         {chatContacts?.map(userChat => (
           <UserProfile key={userChat.nickname} userChat={userChat} currentChat={currentChat}
           setCurrentChat={setCurrentChat}/>
