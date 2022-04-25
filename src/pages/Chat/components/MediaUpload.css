@@ -1,17 +1,17 @@
 .mediaButtonsBar{
-    position: relative;
+    position: absolute;
     margin-top: auto;
-    visibility: hidden;
     background: none;
     display: flex;
+    top:-11rem;
     height: fit-content;
     width: fit-content;
-    border-radius: 50%;
+    border-radius: 6%;
+    background-color: rgba(218, 233, 247, 0.733);
 }
 
 .uploadButton{
     margin: 5px;
-    border-radius: 50%;
 }
 
 .camera{
@@ -23,6 +23,8 @@
 }
 
 .record{
+    display: flex;
+    align-items: center;
     background-color: rgb(255, 0, 200);
 }
 

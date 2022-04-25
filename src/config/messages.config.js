@@ -1,8 +1,7 @@
-import db from "./db.config"
+import db, { KATES_IMAGE } from "./db.config"
 
 const chatBob = [
     {
-      content : "",
       timestamp: '19/04/2022 16:56:30',
       username: 'oriya',
       image: 'https://cdn-prod.medicalnewstoday.com/content/images/articles/325/325466/man-walking-dog.jpg',
@@ -24,7 +23,7 @@ const chatBob = [
   
   const chatELi = [
     {
-      content : "Hi",
+      video:"https://media.geeksforgeeks.org/wp-content/uploads/20190616234019/Canvas.move_.mp4",
       timestamp: '19/04/2022 16:56:30',
       username: 'oriya',
       
@@ -45,7 +44,7 @@ const chatBob = [
   
   const chatKate = [
     {
-      content : "Have you seen the news?",
+      audio : "https://file-examples.com/storage/fe69f82402626533c98f608/2017/11/file_example_MP3_700KB.mp3",
       timestamp: '20/04/2022 16:56:30',
       username: 'kate',
       
@@ -91,38 +90,61 @@ const chatBob = [
     }
   ]
 
-  export const STATIC_CHATS = [{
-    nickname: "Bob",
-    username: 'bob',
-    msgWith: 'oriya',
-    lastMessage: "heellloooo",
-    image: "https://appvital.com/images/profile/file-uploader-api-profile-avatar-2.jpg",
-    lastMessageTime: "19/04/2022 17:00:30" ,
-    chat: chatBob},
+  const chatCody = [
     {
-        nickname: "Eli",
-        username: 'eli',
-        msgWith: 'oriya',
-        lastMessage: "Whatsaooo",
-        image: "https://cdn.dribbble.com/users/1577045/screenshots/4914645/media/028d394ffb00cb7a4b2ef9915a384fd9.png?compress=1&resize=400x300&vertical=top",
-        lastMessageTime: "19/04/2022 22:00:30" ,
-        chat: chatELi},
-        {
-            nickname: "James",
+      content : "Good morning!!:)",
+      timestamp: '23/04/2022 16:56:30',
+      username: 'cody',
+      image: '',
+    },
+    {
+      content : "Morning",
+      timestamp: '23/04/2022 16:58:30',
+      username: 'oriya',
+      
+    },
+    {
+      content : "Do you want to go on a trip?",
+      timestamp: '23/04/2022 17:00:30',
+      username: 'cody',
+      
+    },{
+      content : "Sure!",
+      timestamp: '23/04/2022 17:15:30',
+      username: 'oriya',
+    }
+
+  ]
+  export const STATIC_CHATS = [
+    { nickname: "Bob",
+      username: 'bob',
+      msgWith: 'oriya',
+      chat: chatBob},
+    { nickname: "Eli",
+      username: 'eli',
+      msgWith: 'oriya',
+      chat: chatELi},
+    { nickname: "James",
             username: 'james',
             msgWith: 'oriya',
-            lastMessage: "heellloooo",
-            image: "https://appvital.com/images/profile/file-uploader-api-profile-avatar-2.jpg",
-            lastMessageTime: "18/04/2022 17:00:30" ,
-            chat: chatJames},
+            chat: chatJames
+          },
             {
                 nickname: "Kate",
                 username: 'kate',
                 msgWith: 'oriya',
-                image: "https://cdn2.vectorstock.com/i/1000x1000/20/76/man-avatar-profile-vector-21372076.jpg",
-                lastMessage: "heellloooo",
-                lastMessageTime: "20/04/2022 07:00:30" ,
-                chat: chatKate}] 
+                chat: chatKate}
+                ,{
+
+                nickname: "Cody",
+                username: 'cody',
+                msgWith: 'oriya',
+                chat: chatCody},{
+
+                  nickname: "Bob",
+                  username: 'oriya',
+                  msgWith: 'bob',
+                  chat: chatCody}] 
 
 export const GenerateChatContact = (user, currentUserName, chat) => {
   if(chat.length > 0 ){
@@ -160,4 +182,3 @@ export const GENERATE_CHATS = (currentUser) => {
   })
   return Chat;
 }
-

@@ -7,9 +7,8 @@ import { GENERATE_CHATS } from "../../../../config/messages.config";
 import "./Sidebar.css";
 import useUser from "../../../../hooks/useUser";
 
-function Sidebar({ currentChat, setCurrentChat }) {
+function Sidebar({ currentChat, setCurrentChat, chatContacts, setChatContacts }) {
   const user = useUser()
-  const [chatContacts, setChatContacts] = useState(() => GENERATE_CHATS(user))
   const [contacts, setContacts] = useState(db)
   return (
     <div className="sidebar">

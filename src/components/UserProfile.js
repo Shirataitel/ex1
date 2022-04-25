@@ -7,17 +7,18 @@ function UserProfile({ userChat, setCurrentChat, currentChat }) {
   const onChatUserClick = () => {
     setCurrentChat(userChat)
   }
+  const isMediaLastMessage = userChat.chat.at(-1).image || userChat.chat.at(-1).video || userChat.chat.at(-1).audio 
   return (
-    <div className={`user-profile ${currentChat === userChat ? 'selected-chat' : ''}`} onClick={onChatUserClick} >
+    <div className={`user-profile ${currentChat?.username === userChat.username ? 'selected-chat' : ''}`} onClick={onChatUserClick} >
       <div className="sidebar-header-img">
         <Avatar profileSRC={userChat.image} />
       </div>
       <div className="user-info">
         <div className="inline-flex">
           <h4 className="user-name">{userChat.nickname} </h4>
-          <label>{showTimeDiff(userChat?.lastMessageTime)}</label>
+          <label>{showTimeDiff(userChat?.lastMessageTime)} </label>
         </div>
-        <label>{userChat?.lastMessage || 'No messages yet, start chatting !'}</label>
+        <label>{userChat?.lastMessage || (isMediaLastMessage&& "Media message sent!")|| 'No messages yet, start chatting !'} </label>
       </div>
     </div>
   );

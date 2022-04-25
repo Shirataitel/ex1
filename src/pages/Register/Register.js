@@ -27,7 +27,7 @@ function Register({ setUserStatus, setUser }) {
       username: registerForm.username,
       password: registerForm.password,
       image: registerForm.image,
-      displayName: registerForm.displayName
+      nickname: registerForm.displayName
     }
     console.log(db.length);
     db.push(form);
@@ -69,7 +69,7 @@ function Register({ setUserStatus, setUser }) {
     <div className="bg">
       <nav className="navbar" id="screen-title">
         <div className="container-fluid">
-          <a className="navbar-brand text-right" id="WebChat-text" href="/">
+          <a className="navbar-brand text-right" id="WebChat-text" onClick={() => navigate('/')}>
             <img src="WebChat logo.png" alt="" width="50" height="40" className="d-inline-block" style={{ margin: '0 5px' }} />
             WebChat
           </a>
@@ -121,7 +121,7 @@ function Register({ setUserStatus, setUser }) {
               <label htmlFor="validationCustom01" className="col-sm-2 col-form-label">Image</label>
             </i>
             <div className="col-sm-10">
-              <input type="file" className="form-control" id="validationCustom01" aria-label="file example" onChange={(event) => handleChange(event, 'image')} value={registerForm.image} />
+              <input type="text" className="form-control" id="validationCustom01" aria-label="file example" onChange={(event) => handleChange(event, 'image')} value={registerForm.image} />
             </div>
           </div>
 

@@ -22,7 +22,6 @@ function Login({setUser, setUserStatus}) {
             if (user.password === loginForm.password) {
                 setUser(user)
                 setUserStatus(USER_STATUSES.LOGGED_IN)
-                alert("success")
                 setTimeout(() => navigate("/Chat"), 200)
             } else {
                 alert('Wrong password!');
@@ -50,7 +49,6 @@ function Login({setUser, setUserStatus}) {
             <nav className="navbar  center rounded" id="log-in-navbar">
 
                 <form className="col g-3 needs-validation" onSubmit={onSubmit} noValidate>
-
                     <div className="mb-3 row">
                         <i className="bi-person-fill">
                             <label htmlFor="validationCustom01" className="col-sm-2 col-form-label">Username</label>

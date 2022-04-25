@@ -16,8 +16,11 @@ export const UserContext = React.createContext();
 function App() {
   const {userStatus, setUserStatus, setUser, user} = useAuth()
   useEffect(() => {
-    console.log(userStatus)
-  }, [userStatus])
+    if(userStatus === USER_STATUSES.GUEST)
+      if(window.location.href.includes('Chat')){
+        window.location.replace('/')
+      }
+  }, [])
   return (
     <BrowserRouter>
     <UserContext.Provider value={user}>
@@ -26,7 +29,7 @@ function App() {
          <Route path='/Chat' element={<Chat />}/> )}
         <Route path='/' element={<Login setUserStatus={setUserStatus} setUser={setUser} />}/>
         <Route path='/Register' element={<Register setUserStatus={setUserStatus} setUser={setUser} />}/>
-        <Route path='*' element={<div>NOT FOUND</div>}/>
+        {/* <Route path='*' element={<div>NOT FOUND</div>}/> */}
       </Routes>
     </UserContext.Provider>
   </BrowserRouter>

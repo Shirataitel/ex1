@@ -4,21 +4,47 @@ import ChatMessage from "../../../../components/ChatMessage/ChatMessage";
 import { fomatCurrentDate } from "../../../../config/time.config";
 import useUser from "../../../../hooks/useUser";
 import MediaUpload from "../MediaUpload";
-import $ from 'jquery'; 
+//import $ from 'jquery'; 
 
-function Chatcontainer({ currentChat, setCurrentChat }) {
+function Chatcontainer({ currentChat, setCurrentChat,chatContacts, setChatContacts }) {
   const inputRef = useRef()
+  const [mediaUpload, setMediaUpload] = useState()
   const msgRef = useRef()
   const user = useUser()
+
+
   const onNewMessage = () => {
-    const newMSG = {
+    console.log(mediaUpload)
+    if(inputRef.current.value.trim().length === 0 && !mediaUpload){
+      return alert("you must type at least one letter")
+    }
+    let newMSG = {
       content: inputRef.current.value,
       timestamp: fomatCurrentDate(),
       username: user?.username,
     }
+    if(mediaUpload?.image){
+      newMSG.image = mediaUpload.image
+    }
+    if(mediaUpload?.video){
+      newMSG.video = mediaUpload.video
+    }
+    if(mediaUpload?.audio){
+      newMSG.audio = mediaUpload.audio
+    }
+   console.log(newMSG)
+    const newChatContacts = chatContacts.map(userObj => {
+      if(userObj.username === currentChat.username){
+        return {...userObj, lastMessageTime:newMSG.timestamp, lastMessage: newMSG.content, chat: [...userObj.chat, newMSG]}
+      }
+      return userObj;
+    })
+
+    setChatContacts(newChatContacts)
     setCurrentChat(curr => ({ ...curr, chat: [...curr.chat, newMSG] }))
     inputRef.current.value = ''
   }
+
   useEffect(() => {
     if (msgRef.current) {
       msgRef.current.scrollIntoView({
@@ -27,7 +53,7 @@ function Chatcontainer({ currentChat, setCurrentChat }) {
     }
   }, [currentChat?.chat])
 
-  function mediaUpload() {
+  function showMediaUpload() {
     let mediaUpload = document.getElementById('mediaUpload');
     mediaUpload.style.visibility = 'visible';
   }
@@ -50,25 +76,20 @@ function Chatcontainer({ currentChat, setCurrentChat }) {
 
       <div className="chat-display-container">
         {!currentChat ? (
-          <h2 className="chat-display-bg"></h2>
+          <div className="chat-display-bg"></div>
         ) : (<>
-          <div className="chat-bubble-continer">
+          <div className="chat-bubble-continer" onClick={hideMediaUpload}>
             {currentChat.chat.map(chatMsg => (
-              <ChatMessage key={chatMsg.timestamp} username={chatMsg.username}
-                message={chatMsg.content} time={chatMsg.timestamp} image={chatMsg.image} />
+              <ChatMessage key={chatMsg.timestamp} username={chatMsg.username} audio={chatMsg.audio}
+                message={chatMsg.content} time={chatMsg.timestamp} video={chatMsg.video} image={chatMsg.image} />
             ))}
             <div ref={msgRef}></div>
           </div>
-
-          <MediaUpload />
           <div className="chat-input">
-            <button onClick={mediaUpload} className="no-border">
-              <svg className="media-button" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                <path d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0V3z" />
-              </svg>
-            </button>
+          <MediaUpload mediaUpload={mediaUpload} setMediaUpload={setMediaUpload}/>
+           
             <input id="input" ref={inputRef} placeholder="Type new message here..." />
-            <button id="sendBtn" onClick={onNewMessage} className="chat-input-send-btn" formaction='javascript:alert("Bingo!");'>send</button>
+            <button id="sendBtn" onClick={onNewMessage} className="chat-input-send-btn" formAction='javascript:alert("Bingo!");'>send</button>
           </div>
         </>)}
 
