@@ -4,7 +4,7 @@ import ChatMessage from "../../../../components/ChatMessage/ChatMessage";
 import { fomatCurrentDate } from "../../../../config/time.config";
 import useUser from "../../../../hooks/useUser";
 import MediaUpload from "../MediaUpload";
-import $ from 'jquery'; 
+
 
 function Chatcontainer({ currentChat, setCurrentChat }) {
   const inputRef = useRef()

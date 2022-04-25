@@ -9,6 +9,8 @@ image:"https://media.istockphoto.com/photos/young-african-american-woman-smiling
 { username: "james", password: "Ee123456",
 image:"https://media.istockphoto.com/photos/thisis-what-its-all-about-picture-id1155613377?k=20&m=1155613377&s=612x612&w=0&h=OP7Juu4h8aHulb9pml8AqjYYaCihnbDieSc0Uo7wjbU=", nickname: "James Miler" },
 { username: "lali", password: "Ff123456",
-image:"https://media.istockphoto.com/photos/happy-woman-at-home-greeting-on-a-video-call-picture-id1331490686?b=1&k=20&m=1331490686&s=170667a&w=0&h=QPVd9MWoOd2tlXnvxSl92NBAH50Im7JlHOKAqx-r3UU=", nickname: "Lali Teo" }]
+image:"https://media.istockphoto.com/photos/happy-woman-at-home-greeting-on-a-video-call-picture-id1331490686?b=1&k=20&m=1331490686&s=170667a&w=0&h=QPVd9MWoOd2tlXnvxSl92NBAH50Im7JlHOKAqx-r3UU=", nickname: "Lali Teo" },
+{ username: "cody", password: "Ff123456",
+image:"https://media.istockphoto.com/photos/happy-woman-at-home-greeting-on-a-video-call-picture-id1331490686?b=1&k=20&m=1331490686&s=170667a&w=0&h=QPVd9MWoOd2tlXnvxSl92NBAH50Im7JlHOKAqx-r3UU=", nickname: "Cody" }]
 
 export default db;
