@@ -14,13 +14,11 @@ function Chatcontainer({ currentChat, setCurrentChat,chatContacts, setChatContac
 
 
   const onNewMessage = () => {
-    console.log(mediaUpload)
+    console.log(inputRef.current.value.trim().length)
     if(inputRef.current.value.trim().length === 0 && !mediaUpload){
       return alert("you must type at least one letter")
     }
-    if(inputRef.current.value.trim().length === 60 && !mediaUpload){
-      return alert("the massage is to long");
-    }
+
     let newMSG = {
       content: inputRef.current.value,
       timestamp: fomatCurrentDate(),
@@ -91,7 +89,7 @@ function Chatcontainer({ currentChat, setCurrentChat,chatContacts, setChatContac
           <div className="chat-input">
           <MediaUpload mediaUpload={mediaUpload} setMediaUpload={setMediaUpload}/>
            
-            <input id="input" ref={inputRef} placeholder="Type new message here..." />
+            <input id="input" ref={inputRef} placeholder="Type new message here..." maxlength="57"/>
             <button id="sendBtn" onClick={onNewMessage} className="chat-input-send-btn" formAction='javascript:alert("Bingo!");'>send</button>
           </div>
         </>)}

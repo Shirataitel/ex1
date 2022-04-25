@@ -18,7 +18,7 @@ function UserProfile({ userChat, setCurrentChat, currentChat }) {
           <h4 className="user-name">{userChat.nickname} </h4>
           <label>{showTimeDiff(userChat?.lastMessageTime)} </label>
         </div>
-        <label>{userChat?.lastMessage || (isMediaLastMessage&& "Media message sent!")|| 'No messages yet, start chatting !'} </label>
+        <label>{userChat?.lastMessage || (isMediaLastMessage && "Media message sent!")|| 'No messages yet, start chatting !'} </label>
       </div>
     </div>
   );
