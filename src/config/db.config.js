@@ -11,7 +11,8 @@ export const db = [
     { username: "eli", password: "Cc123456", image: ELI_IMAGE, nickname: "Eli Vos" },
     { username: "kate", password: "Dd123456", image: KATES_IMAGE, nickname: "Kate Portman" },
     { username: "james", password: "Ee123456", image: JAMES_IMAGE, nickname: "James Miler" },
-    { username: "cody", password: "13579Qq", image: CODY_IMAGE, nickname: "Cody Smith" }
+    { username: "cody", password: "13579Qq", image: CODY_IMAGE, nickname: "Cody Smith" },
+    { username: "c", password: "1", image: CODY_IMAGE, nickname: "Ch" }
 ]
 
 export default db;

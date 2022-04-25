@@ -25,7 +25,7 @@ function Sidebar({ currentChat, setCurrentChat, chatContacts, setChatContacts })
         <label>{user.nickname}</label>
         </div>
         <div>
-        <CreateContact chatContacts={chatContacts} contacts={contacts} setChatContacts={setChatContacts} />
+        <CreateContact chatContacts={chatContacts} setChatContacts={setChatContacts} contacts={contacts} />
         </div>
       </div>
       <div className="sidebar-chat-list" onClick={hideMediaUpload}>
