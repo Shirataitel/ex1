@@ -12,9 +12,11 @@
   }
   
   .chat-bg {
+    margin-top: 40;
     background-image: url("../../assets/bg.jpg");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100% 100%;
+
   }
 
   #screen-title{
