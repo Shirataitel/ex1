@@ -29,7 +29,6 @@ const CreateContact = ({chatContacts ,setChatContacts, contacts}) => {
                 setChatContacts(prev =>
                      [...prev, {...GenerateChatContact(foundContact,user.username, [] ) }])
                      handleClose()
-                     
                      return;
             }else{
                 alert("We Couldn't find that user, please try again")
@@ -55,7 +54,7 @@ const CreateContact = ({chatContacts ,setChatContacts, contacts}) => {
           </Modal.Header>
           <Modal.Body>
               <div>
-                <input ref={userInputRef} className="form-control" placeholder="Contact's username"/>
+                <input ref={userInputRef} class="form-control" placeholder="Contact's username"/>
               </div>
           </Modal.Body>
           <Modal.Footer>

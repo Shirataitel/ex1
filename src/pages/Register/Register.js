@@ -121,7 +121,7 @@ function Register({ setUserStatus, setUser }) {
               <label htmlFor="validationCustom01" className="col-sm-2 col-form-label">Image</label>
             </i>
             <div className="col-sm-10">
-              <input type="text" className="form-control" id="validationCustom01" aria-label="file example" placeholder="url" onChange={(event) => handleChange(event, 'image')} value={registerForm.image} />
+              <input type="text" className="form-control" id="validationCustom01" aria-label="file example" onChange={(event) => handleChange(event, 'image')} value={registerForm.image} />
             </div>
           </div>
 

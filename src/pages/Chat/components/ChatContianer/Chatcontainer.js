@@ -4,7 +4,6 @@ import ChatMessage from "../../../../components/ChatMessage/ChatMessage";
 import { fomatCurrentDate } from "../../../../config/time.config";
 import useUser from "../../../../hooks/useUser";
 import MediaUpload from "../MediaUpload";
-//import $ from 'jquery'; 
 
 function Chatcontainer({ currentChat, setCurrentChat,chatContacts, setChatContacts }) {
   const inputRef = useRef()
@@ -14,11 +13,10 @@ function Chatcontainer({ currentChat, setCurrentChat,chatContacts, setChatContac
 
 
   const onNewMessage = () => {
-    console.log(inputRef.current.value.trim().length)
+    console.log(mediaUpload)
     if(inputRef.current.value.trim().length === 0 && !mediaUpload){
       return alert("you must type at least one letter")
     }
-
     let newMSG = {
       content: inputRef.current.value,
       timestamp: fomatCurrentDate(),
@@ -89,7 +87,7 @@ function Chatcontainer({ currentChat, setCurrentChat,chatContacts, setChatContac
           <div className="chat-input">
           <MediaUpload mediaUpload={mediaUpload} setMediaUpload={setMediaUpload}/>
            
-            <input id="input" ref={inputRef} placeholder="Type new message here..." maxlength="57"/>
+            <input id="input" ref={inputRef} maxLength="57" placeholder="Type new message here..." />
             <button id="sendBtn" onClick={onNewMessage} className="chat-input-send-btn" formAction='javascript:alert("Bingo!");'>send</button>
           </div>
         </>)}
