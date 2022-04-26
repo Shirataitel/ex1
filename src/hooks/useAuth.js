@@ -10,5 +10,4 @@ const useAuth = () => {
   
   return {userStatus, setUserStatus, user, setUser}
 }
-
 export default useAuth
