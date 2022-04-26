@@ -12,7 +12,7 @@ function Chat() {
     const [chatContacts, setChatContacts] = useState(() => GENERATE_CHATS(user))
     const navigate = useNavigate()
     return (
-        <div className="chatpage ">
+        <div className="chatpage">
            <nav className="navbar" id="screen-title">
                 <div className="container-fluid">
                     <a className="navbar-brand text-right" id="WebChat-text" onClick={() => navigate('/')}>
@@ -21,7 +21,7 @@ function Chat() {
                     </a>
                 </div>
             </nav>
-            <div className="chatpage-container chat-bg">
+            <div className="chatpage-container  chat-bg">
                 {/* sidebar */}
                 <Sidebar chatContacts={chatContacts} setChatContacts={setChatContacts} currentChat={currentChat} setCurrentChat={setCurrentChat}/>
                 {/* chatcontainer */}
