@@ -5,36 +5,42 @@ import { fomatCurrentDate } from "../../../../config/time.config";
 import useUser from "../../../../hooks/useUser";
 import MediaUpload from "../MediaUpload";
 
-function Chatcontainer({ currentChat, setCurrentChat,chatContacts, setChatContacts }) {
+function Chatcontainer({ currentChat, setCurrentChat, chatContacts, setChatContacts }) {
   const inputRef = useRef()
   const [mediaUpload, setMediaUpload] = useState()
   const msgRef = useRef()
   const user = useUser()
 
+  function hideMediaUpload() {
+    let mediaUpload = document.getElementById('mediaUpload');
+    mediaUpload.style.visibility = 'hidden';
+  }
 
   const onNewMessage = () => {
-    console.log(mediaUpload)
-    if(inputRef.current.value.trim().length === 0 && !mediaUpload){
+
+    if (inputRef.current.value.trim().length === 0 && !mediaUpload) {
       return alert("you must type at least one letter")
     }
+
     let newMSG = {
       content: inputRef.current.value,
       timestamp: fomatCurrentDate(),
       username: user?.username,
     }
-    if(mediaUpload?.image){
-      newMSG.image = mediaUpload.image
+    if(mediaUpload && inputRef.current.value.trim().length === 0){
+      if (mediaUpload?.image) {
+        newMSG.image = mediaUpload.image
+      }
+      if (mediaUpload?.video) {
+        newMSG.video = mediaUpload.video
+      }
+      if (mediaUpload?.audio) {
+        newMSG.audio = mediaUpload.audio
+      }
     }
-    if(mediaUpload?.video){
-      newMSG.video = mediaUpload.video
-    }
-    if(mediaUpload?.audio){
-      newMSG.audio = mediaUpload.audio
-    }
-   console.log(newMSG)
     const newChatContacts = chatContacts.map(userObj => {
-      if(userObj.username === currentChat.username){
-        return {...userObj, lastMessageTime:newMSG.timestamp, lastMessage: newMSG.content, chat: [...userObj.chat, newMSG]}
+      if (userObj.username === currentChat.username) {
+        return { ...userObj, lastMessageTime: newMSG.timestamp, lastMessage: newMSG.content, chat: [...userObj.chat, newMSG] }
       }
       return userObj;
     })
@@ -42,6 +48,8 @@ function Chatcontainer({ currentChat, setCurrentChat,chatContacts, setChatContac
     setChatContacts(newChatContacts)
     setCurrentChat(curr => ({ ...curr, chat: [...curr.chat, newMSG] }))
     inputRef.current.value = ''
+    hideMediaUpload();
+    setMediaUpload()
   }
 
   useEffect(() => {
@@ -57,10 +65,6 @@ function Chatcontainer({ currentChat, setCurrentChat,chatContacts, setChatContac
     mediaUpload.style.visibility = 'visible';
   }
 
-  function hideMediaUpload() {
-    let mediaUpload = document.getElementById('mediaUpload');
-    mediaUpload.style.visibility = 'hidden';
-  }
 
   return (
     <div className="chat-container">
@@ -85,9 +89,9 @@ function Chatcontainer({ currentChat, setCurrentChat,chatContacts, setChatContac
             <div ref={msgRef}></div>
           </div>
           <div className="chat-input">
-          <MediaUpload mediaUpload={mediaUpload} setMediaUpload={setMediaUpload}/>
-           
-            <input id="input" ref={inputRef} maxLength="57" placeholder="Type new message here..." />
+            <MediaUpload mediaUpload={mediaUpload} setMediaUpload={setMediaUpload}/>
+
+            <input id="input" ref={inputRef} placeholder="Type new message here..." />
             <button id="sendBtn" onClick={onNewMessage} className="chat-input-send-btn" formAction='javascript:alert("Bingo!");'>send</button>
           </div>
         </>)}
