@@ -45,7 +45,7 @@ const chatCarlyBob = [
   
   const chatCarlyKate = [
     {
-      audio : "https://file-examples.com/storage/fe69f82402626533c98f608/2017/11/file_example_MP3_700KB.mp3",
+      audio : "https://file-examples.com/storage/fef12739526267ac9a2b543/2017/11/file_example_MP3_700KB.mp3",
       timestamp: '20/04/2022 16:56:30',
       username: 'kate',
       
@@ -140,7 +140,7 @@ const chatCarlyBob = [
   
   const chatBobKate = [
     {
-      audio : "https://file-examples.com/storage/fe69f82402626533c98f608/2017/11/file_example_MP3_700KB.mp3",
+      audio : "https://file-examples.com/storage/fef12739526267ac9a2b543/2017/11/file_example_MP3_700KB.mp3",
       timestamp: '20/04/2022 16:56:30',
       username: 'kate',
       
@@ -214,7 +214,7 @@ const chatCarlyBob = [
   
   const chatEliKate = [
     {
-      audio : "https://file-examples.com/storage/fe69f82402626533c98f608/2017/11/file_example_MP3_700KB.mp3",
+      audio : "https://file-examples.com/storage/fef12739526267ac9a2b543/2017/11/file_example_MP3_700KB.mp3",
       timestamp: '20/04/2022 16:56:30',
       username: 'kate',
       
@@ -376,7 +376,7 @@ const chatCarlyBob = [
 
     const chatJamesEli = [
       {
-        audio : "https://file-examples.com/storage/fe69f82402626533c98f608/2017/11/file_example_MP3_700KB.mp3",
+        audio : "https://file-examples.com/storage/fef12739526267ac9a2b543/2017/11/file_example_MP3_700KB.mp3",
         timestamp: '20/04/2022 16:56:30',
         username: 'eli',
         
@@ -512,7 +512,7 @@ const chatCodyEli = [
 
 const chatCodyKate = [
   {
-    audio : "https://file-examples.com/storage/fe69f82402626533c98f608/2017/11/file_example_MP3_700KB.mp3",
+    audio : "https://file-examples.com/storage/fef12739526267ac9a2b543/2017/11/file_example_MP3_700KB.mp3",
     timestamp: '20/04/2022 16:56:30',
     username: 'kate',
     
